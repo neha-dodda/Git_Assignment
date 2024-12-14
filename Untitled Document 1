@@ -1,0 +1,269 @@
+labuser@labuser-virtual-machine:~$ git --version
+git version 2.34.1
+labuser@labuser-virtual-machine:~$ ^C
+labuser@labuser-virtual-machine:~$ mkdir test1
+labuser@labuser-virtual-machine:~$ cd test1
+labuser@labuser-virtual-machine:~/test1$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/labuser/test1/.git/
+labuser@labuser-virtual-machine:~/test1$ git init
+Reinitialized existing Git repository in /home/labuser/test1/.git/
+labuser@labuser-virtual-machine:~/test1$ echo "test1" > test1
+labuser@labuser-virtual-machine:~/test1$ ls
+test1
+labuser@labuser-virtual-machine:~/test1$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	test1
+
+nothing added to commit but untracked files present (use "git add" to track)
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change1"
+[master (root-commit) 706fb4d] change1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test1
+labuser@labuser-virtual-machine:~/test1$ gir remote add origin https://github.com/neha-dodda/Assignment1.git
+Command 'gir' not found, did you mean:
+  command 'gip' from deb gip (1.7.0-1-5)
+  command 'gie' from deb proj-bin (8.2.1-1)
+  command 'gid' from deb id-utils (4.6.28-20200521ss15dab)
+  command 'gio' from deb libglib2.0-bin (2.72.4-0ubuntu2.3)
+  command 'dir' from deb coreutils (8.32-4.1ubuntu1.2)
+  command 'git' from deb git (1:2.34.1-1ubuntu1.11)
+  command 'xir' from deb libxir-utils (1.4-2ubuntu1)
+  command 'gpr' from deb gpr (0.15deb-2build1)
+Try: sudo apt install <deb name>
+labuser@labuser-virtual-machine:~/test1$ git remote add origin https://github.com/neha-dodda/Assignment1.git
+labuser@labuser-virtual-machine:~/test1$ git remote -v
+origin	https://github.com/neha-dodda/Assignment1.git (fetch)
+origin	https://github.com/neha-dodda/Assignment1.git (push)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': neha-dodda
+Password for 'https://neha-dodda@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/neha-dodda/Assignment1.git/'
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': neha-dodda                
+Password for 'https://neha-dodda@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 222 bytes | 222.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/neha-dodda/Assignment1.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ ls
+test1
+labuser@labuser-virtual-machine:~/test1$ nano test1
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change2"
+[master 37e936f] change2
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+labuser@labuser-virtual-machine:~/test1$ git push -u origin master
+Username for 'https://github.com': neha-dodda
+Password for 'https://neha-dodda@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 252 bytes | 252.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/neha-dodda/Assignment1.git
+   706fb4d..37e936f  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+* master
+labuser@labuser-virtual-machine:~/test1$ git branch devops1
+labuser@labuser-virtual-machine:~/test1$ git checkout devops1
+Switched to branch 'devops1'
+labuser@labuser-virtual-machine:~/test1$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ echo "test3" > file1
+labuser@labuser-virtual-machine:~/test1$ echo "test4" > file2
+labuser@labuser-virtual-machine:~/test1$ ls -li
+total 12
+6162870 -rw-rw-r-- 1 labuser labuser 6 Dec 14 05:22 file1
+6162905 -rw-rw-r-- 1 labuser labuser 6 Dec 14 05:22 file2
+6162872 -rw-rw-r-- 1 labuser labuser 7 Dec 14 05:09 test1
+labuser@labuser-virtual-machine:~/test1$ git add .
+labuser@labuser-virtual-machine:~/test1$ git commit -m "change4"
+[devops1 08835e6] change4
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test1$ git push -u origin devops1
+Username for 'https://github.com': neha-dodda
+Password for 'https://neha-dodda@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 321 bytes | 321.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'devops1' on GitHub by visiting:
+remote:      https://github.com/neha-dodda/Assignment1/pull/new/devops1
+remote: 
+To https://github.com/neha-dodda/Assignment1.git
+ * [new branch]      devops1 -> devops1
+Branch 'devops1' set up to track remote branch 'devops1' from 'origin'.
+labuser@labuser-virtual-machine:~/test1$ git branch
+* devops1
+  master
+labuser@labuser-virtual-machine:~/test1$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/test1$ git merge devops1
+Updating 37e936f..08835e6
+Fast-forward
+ file1 | 1 +
+ file2 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1
+ create mode 100644 file2
+labuser@labuser-virtual-machine:~/test1$ git log -p
+commit 08835e6c15dba30e3afb9e60f400fad7ce67e0a5 (HEAD -> master, origin/devops1, devops1)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 05:40:50 2024 -0500
+
+    change4
+
+diff --git a/file1 b/file1
+new file mode 100644
+index 0000000..df6b0d2
+--- /dev/null
++++ b/file1
+@@ -0,0 +1 @@
++test3
+diff --git a/file2 b/file2
+new file mode 100644
+index 0000000..d234c5e
+--- /dev/null
++++ b/file2
+@@ -0,0 +1 @@
++test4
+
+commit 37e936f7a7121adb7215733c2993a990991c62f1 (origin/master)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 05:10:39 2024 -0500
+
+    change2
+
+diff --git a/test1 b/test1
+index a5bce3f..4a19b05 100644
+--- a/test1
++++ b/test1
+@@ -1 +1,2 @@
+-test1
++test2
++
+
+commit 706fb4dd6ff3442c967e5b4e1618d82838b1f08b
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 04:27:38 2024 -0500
+
+    change1
+
+diff --git a/test1 b/test1
+new file mode 100644
+index 0000000..a5bce3f
+--- /dev/null
++++ b/test1
+@@ -0,0 +1 @@
++test1
+labuser@labuser-virtual-machine:~/test1$ git log --oneline
+08835e6 (HEAD -> master, origin/devops1, devops1) change4
+37e936f (origin/master) change2
+706fb4d change1
+labuser@labuser-virtual-machine:~/test1$ cd
+labuser@labuser-virtual-machine:~$ git clone https://github.com/neha-dodda/Assignment1.git
+Cloning into 'Assignment1'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 10 (delta 0), reused 10 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (10/10), done.
+labuser@labuser-virtual-machine:~$ ls -li
+total 52
+6029752 drwxrwxr-x 3 labuser labuser 4096 Dec 14 06:16 Assignment1
+6029410 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Desktop
+6029414 drwxr-xr-x 3 labuser labuser 4096 Dec 15  2023 Documents
+6029411 drwxr-xr-x 2 labuser labuser 4096 Dec 18  2023 Downloads
+6036475 -rw-rw-r-- 1 labuser labuser   53 Dec 18  2023 execute.yml
+6029415 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Music
+6029416 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Pictures
+6029413 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Public
+6030259 drwxrwxr-x 2 labuser labuser 4096 Dec 18  2023 repos
+6029322 drwx------ 6 labuser labuser 4096 Dec 15  2023 snap
+6029412 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Templates
+6162847 drwxrwxr-x 3 labuser labuser 4096 Dec 14 05:49 test1
+6029418 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Videos
+labuser@labuser-virtual-machine:~$ cd Assignment1
+labuser@labuser-virtual-machine:~/Assignment1$ ls
+test1
+labuser@labuser-virtual-machine:~/Assignment1$ mkdir dev1
+labuser@labuser-virtual-machine:~/Assignment1$ cd dev1
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git pull https://github.com/neha-dodda/Assignment1git
+Username for 'https://github.com': neha-dodda
+Password for 'https://neha-dodda@github.com': 
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ cd Assignment1
+bash: cd: Assignment1: No such file or directory
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git pull https://github.com/neha-dodda/Assignment1.git
+From https://github.com/neha-dodda/Assignment1
+ * branch            HEAD       -> FETCH_HEAD
+Already up to date.
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git init .
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/labuser/Assignment1/dev1/.git/
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git remote -v
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git pull https://github.com/neha-dodda/Assignment1.git master
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 422 bytes | 422.00 KiB/s, done.
+From https://github.com/neha-dodda/Assignment1
+ * branch            master     -> FETCH_HEAD
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git branch
+* master
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ ls -li
+total 4
+6030549 -rw-rw-r-- 1 labuser labuser 7 Dec 14 06:27 test1
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git branch m1
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ echo "apple1" > fruit
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git checkout master
+Switched to branch 'master'
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ ls
+fruit  test1
+labuser@labuser-virtual-machine:~/Assignment1/dev1$ git rebase master
+Current branch m1 is up to date.
+labuser@labuser-virtual-machine:~/Assignment1/dev1$
